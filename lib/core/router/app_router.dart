@@ -7,6 +7,7 @@ import 'package:erection_test/pages/loading_page/loading_page.dart';
 import 'package:erection_test/pages/result_page/result_page.dart';
 import 'package:erection_test/pages/settings_page/settings_page.dart';
 import 'package:erection_test/pages/test_page/test_page.dart';
+import 'package:erection_test/widgets/shell_scaffold.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 
@@ -82,41 +83,48 @@ class AppRouter {
               return null;
             },
             routes: [
-              GoRoute(
-                path: home,
-                name: home,
-                builder: (context, state) {
-                  return HomePage(
-                    key: state.pageKey,
-                  );
+              ShellRoute(
+                builder: (context, state, child) {
+                  return ShellScaffold(child: child);
                 },
-              ),
-              GoRoute(
-                path: test,
-                name: test,
-                builder: (context, state) {
-                  return TestPage(
-                    key: state.pageKey,
-                  );
-                },
-              ),
-              GoRoute(
-                path: result,
-                name: result,
-                builder: (context, state) {
-                  return ResultPage(
-                    key: state.pageKey,
-                  );
-                },
-              ),
-              GoRoute(
-                path: settings,
-                name: settings,
-                builder: (context, state) {
-                  return SettingsPage(
-                    key: state.pageKey,
-                  );
-                },
+                routes: [
+                  GoRoute(
+                    path: home,
+                    name: home,
+                    builder: (context, state) {
+                      return HomePage(
+                        key: state.pageKey,
+                      );
+                    },
+                  ),
+                  GoRoute(
+                    path: test,
+                    name: test,
+                    builder: (context, state) {
+                      return TestPage(
+                        key: state.pageKey,
+                      );
+                    },
+                  ),
+                  GoRoute(
+                    path: result,
+                    name: result,
+                    builder: (context, state) {
+                      return ResultPage(
+                        key: state.pageKey,
+                      );
+                    },
+                  ),
+                  GoRoute(
+                    path: settings,
+                    name: settings,
+                    builder: (context, state) {
+                      return SettingsPage(
+                        key: state.pageKey,
+                      );
+                    },
+                  ),
+                ],
               ),
             ],
           ),

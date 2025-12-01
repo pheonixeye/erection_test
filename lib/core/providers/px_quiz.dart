@@ -18,7 +18,7 @@ class PxQuiz extends ChangeNotifier {
     final _map = json.decode(_bundle) as List<dynamic>;
     _questions = _map.map((e) => Question.fromJson(e)).toList();
     notifyListeners();
-    print(questions);
+    // print(questions);
   }
 
   final Map<int, int?> _scores = {};
