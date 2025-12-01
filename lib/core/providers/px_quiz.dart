@@ -65,29 +65,33 @@ class PxQuiz extends ChangeNotifier {
       return;
     }
     _scores.entries.map((entry) {
-      if (erectileFunctionIndexes.contains(entry.key)) {
+      if (QuestionnaireConstants.erectileFunctionIndexes.contains(entry.key)) {
         _erectileFunctionScore[entry.key] = entry.value!;
       }
-      if (orgasmicFunctionIndexes.contains(entry.key)) {
+      if (QuestionnaireConstants.orgasmicFunctionIndexes.contains(entry.key)) {
         _orgasmicFunctionScore[entry.key] = entry.value!;
       }
-      if (sexualDesireIndexes.contains(entry.key)) {
+      if (QuestionnaireConstants.sexualDesireIndexes.contains(entry.key)) {
         _sexualDesireScore[entry.key] = entry.value!;
       }
-      if (overallSatisfactionIndexes.contains(entry.key)) {
+      if (QuestionnaireConstants.overallSatisfactionIndexes.contains(
+        entry.key,
+      )) {
         _overallSatisfactionScore[entry.key] = entry.value!;
       }
-      if (intercourseSatisfactionIndexes.contains(entry.key)) {
+      if (QuestionnaireConstants.intercourseSatisfactionIndexes.contains(
+        entry.key,
+      )) {
         _intercourseSatisfactionScore[entry.key] = entry.value!;
       }
     }).toList();
     notifyListeners();
     print(
-      '''erectile function score : $erectileFunctionScore / $erectileFunctionMaxScore,
-orgasmic function score : $orgasmicFunctionScore / $orgasmicFunctionMaxScore,
-sexual desire score : $sexualDesireScore / $sexualDesireMaxScore,
-intercourse satisfaction score : $intercourseSatisfactionScore / $intercourseSatisfactionMaxScore,
-overall satisfaction score : $overallSatisfactionScore / $overallSatisfactionMaxScore,''',
+      '''erectile function score : $erectileFunctionScore / ${QuestionnaireConstants.erectileFunctionMaxScore},
+orgasmic function score : $orgasmicFunctionScore / ${QuestionnaireConstants.orgasmicFunctionMaxScore},
+sexual desire score : $sexualDesireScore / ${QuestionnaireConstants.sexualDesireMaxScore},
+intercourse satisfaction score : $intercourseSatisfactionScore / ${QuestionnaireConstants.intercourseSatisfactionMaxScore},
+overall satisfaction score : $overallSatisfactionScore / ${QuestionnaireConstants.overallSatisfactionMaxScore},''',
     );
   }
 }

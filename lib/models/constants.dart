@@ -1,19 +1,23 @@
-const erectileFunctionIndexes = [1, 2, 3, 4, 5, 15];
+class QuestionnaireConstants {
+  const QuestionnaireConstants();
 
-const orgasmicFunctionIndexes = [9, 10];
+  static const erectileFunctionIndexes = [1, 2, 3, 4, 5, 15];
 
-const sexualDesireIndexes = [11, 12];
+  static const orgasmicFunctionIndexes = [9, 10];
 
-const intercourseSatisfactionIndexes = [6, 7, 8];
+  static const sexualDesireIndexes = [11, 12];
 
-const overallSatisfactionIndexes = [13, 14];
+  static const intercourseSatisfactionIndexes = [6, 7, 8];
 
-const erectileFunctionMaxScore = 30;
+  static const overallSatisfactionIndexes = [13, 14];
 
-const orgasmicFunctionMaxScore = 10;
+  static const erectileFunctionMaxScore = 30;
 
-const sexualDesireMaxScore = 10;
+  static const orgasmicFunctionMaxScore = 10;
 
-const intercourseSatisfactionMaxScore = 10;
+  static const sexualDesireMaxScore = 10;
 
-const overallSatisfactionMaxScore = 10;
+  static const intercourseSatisfactionMaxScore = 10;
+
+  static const overallSatisfactionMaxScore = 10;
+}
