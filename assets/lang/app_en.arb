@@ -1,3 +1,6 @@
 {
-    "erectionTest" : "Erection Test"
+    "erectionTest" : "Erection Test",
+    "calculateScore" : "Calculate Score",
+    "questionnaireIncomplete" : "Questionnaire Incomplete"
+
 }

@@ -103,6 +103,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Erection Test'**
   String get erectionTest;
+
+  /// No description provided for @calculateScore.
+  ///
+  /// In en, this message translates to:
+  /// **'Calculate Score'**
+  String get calculateScore;
+
+  /// No description provided for @questionnaireIncomplete.
+  ///
+  /// In en, this message translates to:
+  /// **'Questionnaire Incomplete'**
+  String get questionnaireIncomplete;
 }
 
 class _AppLocalizationsDelegate

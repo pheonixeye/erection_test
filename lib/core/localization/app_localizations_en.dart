@@ -10,4 +10,10 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get erectionTest => 'Erection Test';
+
+  @override
+  String get calculateScore => 'Calculate Score';
+
+  @override
+  String get questionnaireIncomplete => 'Questionnaire Incomplete';
 }

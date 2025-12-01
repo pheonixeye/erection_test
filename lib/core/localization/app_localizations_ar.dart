@@ -10,4 +10,10 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get erectionTest => 'اختبار الانتصاب';
+
+  @override
+  String get calculateScore => 'حساب النتيجة';
+
+  @override
+  String get questionnaireIncomplete => 'برجاء اجابة كل الاسئلة';
 }

@@ -1,3 +1,5 @@
 {
-    "erectionTest" : "اختبار الانتصاب"
+    "erectionTest" : "اختبار الانتصاب",
+    "calculateScore" : "حساب النتيجة",
+    "questionnaireIncomplete" : "برجاء اجابة كل الاسئلة"
 }

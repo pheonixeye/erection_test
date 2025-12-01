@@ -1,4 +1,5 @@
 import 'package:erection_test/core/providers/px_locale.dart';
+import 'package:erection_test/core/providers/px_quiz.dart';
 import 'package:erection_test/core/providers/px_theme.dart';
 import 'package:erection_test/core/router/app_router.dart';
 import 'package:provider/provider.dart';
@@ -13,5 +14,8 @@ final List<SingleChildWidget> providers = [
   ),
   ChangeNotifierProvider(
     create: (context) => PxTheme(),
+  ),
+  ChangeNotifierProvider(
+    create: (context) => PxQuiz(),
   ),
 ];
