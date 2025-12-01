@@ -1,6 +1,7 @@
 import 'package:erection_test/core/providers/px_locale.dart';
 import 'package:erection_test/core/utils/shared_prefs.dart';
 import 'package:erection_test/core/utils/utils_keys.dart';
+import 'package:erection_test/pages/about_page/about_page.dart';
 import 'package:erection_test/pages/home_page/home_page.dart';
 import 'package:erection_test/pages/lang_page/lang_page.dart';
 import 'package:erection_test/pages/loading_page/loading_page.dart';
@@ -18,6 +19,7 @@ class AppRouter {
   static const String loading = "/";
   static const String lang = ":lang";
   static const String home = "home";
+  static const String about = "about";
   static const String test = "test";
   static const String result = "result";
   static const String settings = "settings";
@@ -93,6 +95,15 @@ class AppRouter {
                     name: home,
                     builder: (context, state) {
                       return HomePage(
+                        key: state.pageKey,
+                      );
+                    },
+                  ),
+                  GoRoute(
+                    path: about,
+                    name: about,
+                    builder: (context, state) {
+                      return AboutPage(
                         key: state.pageKey,
                       );
                     },

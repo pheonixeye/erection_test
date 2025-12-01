@@ -3,6 +3,7 @@ import 'package:erection_test/core/providers/_main.dart';
 import 'package:erection_test/core/providers/px_locale.dart';
 import 'package:erection_test/core/providers/px_theme.dart';
 import 'package:erection_test/core/router/app_router.dart';
+import 'package:erection_test/core/utils/app_theme.dart';
 import 'package:erection_test/core/utils/shared_prefs.dart';
 import 'package:erection_test/core/utils/utils_keys.dart';
 import 'package:flutter/material.dart';
@@ -42,6 +43,8 @@ class MyApp extends StatelessWidget {
           routerConfig: AppRouter.router,
           debugShowCheckedModeBanner: false,
           locale: l.locale,
+          darkTheme: AppTheme.darkTheme(context, !l.isEnglish),
+          theme: AppTheme.lightTheme(context, !l.isEnglish),
           supportedLocales: AppLocalizations.supportedLocales,
           localizationsDelegates: AppLocalizations.localizationsDelegates,
           themeMode: t.themeMode,

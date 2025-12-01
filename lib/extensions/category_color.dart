@@ -6,7 +6,7 @@ Color categoryColor(int index) {
     return Colors.red.shade50;
   }
   if (QuestionnaireConstants.orgasmicFunctionIndexes.contains(index)) {
-    return Colors.orange.shade50;
+    return Colors.deepOrange.shade50;
   }
   if (QuestionnaireConstants.sexualDesireIndexes.contains(index)) {
     return Colors.blue.shade50;
