@@ -63,6 +63,10 @@ class AppTheme {
           textStyle: textTheme.bodyLarge,
         ),
       ),
+
+      iconTheme: IconThemeData(
+        color: Colors.grey,
+      ),
     );
   }
 
@@ -119,6 +123,10 @@ class AppTheme {
           borderRadius: BorderRadius.circular(14),
           borderSide: BorderSide.none,
         ),
+      ),
+
+      iconTheme: IconThemeData(
+        color: Colors.grey,
       ),
     );
   }

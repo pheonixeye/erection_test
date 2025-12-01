@@ -17,7 +17,7 @@ class QuestionnaireConstants {
 
   static const sexualDesireMaxScore = 10;
 
-  static const intercourseSatisfactionMaxScore = 10;
+  static const intercourseSatisfactionMaxScore = 15;
 
   static const overallSatisfactionMaxScore = 10;
 }

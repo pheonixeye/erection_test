@@ -7,7 +7,7 @@ class PxTheme extends ChangeNotifier {
     _init();
   }
 
-  ThemeMode _themeMode = ThemeMode.light;
+  ThemeMode _themeMode = ThemeMode.dark;
   ThemeMode get themeMode => _themeMode;
 
   Future<void> _init() async {
@@ -23,4 +23,6 @@ class PxTheme extends ChangeNotifier {
     await asyncPrefs.setString('theme', _themeMode.name.split('.').last);
     notifyListeners();
   }
+
+  bool get isDark => _themeMode == ThemeMode.dark;
 }

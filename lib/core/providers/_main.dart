@@ -1,3 +1,4 @@
+import 'package:erection_test/core/providers/px_disclaimer.dart';
 import 'package:erection_test/core/providers/px_locale.dart';
 import 'package:erection_test/core/providers/px_quiz.dart';
 import 'package:erection_test/core/providers/px_theme.dart';
@@ -17,5 +18,8 @@ final List<SingleChildWidget> providers = [
   ),
   ChangeNotifierProvider(
     create: (context) => PxQuiz(),
+  ),
+  ChangeNotifierProvider(
+    create: (context) => PxDisclaimer(context),
   ),
 ];

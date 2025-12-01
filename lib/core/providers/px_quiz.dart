@@ -94,4 +94,14 @@ intercourse satisfaction score : $intercourseSatisfactionScore / ${Questionnaire
 overall satisfaction score : $overallSatisfactionScore / ${QuestionnaireConstants.overallSatisfactionMaxScore},''',
     );
   }
+
+  void resetScore() {
+    _scores.clear();
+    _erectileFunctionScore.clear();
+    _orgasmicFunctionScore.clear();
+    _sexualDesireScore.clear();
+    _intercourseSatisfactionScore.clear();
+    _overallSatisfactionScore.clear();
+    notifyListeners();
+  }
 }

@@ -39,7 +39,6 @@ class MyApp extends StatelessWidget {
       builder: (context, l, t, _) {
         return MaterialApp.router(
           scaffoldMessengerKey: UtilsKeys.scaffoldMessengerKey,
-          // title: context.loc.erectionTest,
           routerConfig: AppRouter.router,
           debugShowCheckedModeBanner: false,
           locale: l.locale,
@@ -48,7 +47,7 @@ class MyApp extends StatelessWidget {
           supportedLocales: AppLocalizations.supportedLocales,
           localizationsDelegates: AppLocalizations.localizationsDelegates,
           themeMode: t.themeMode,
-          //TODO: make themes
+          //todo: make themes
           builder: (context, child) {
             return Overlay(
               initialEntries: [

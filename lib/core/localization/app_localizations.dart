@@ -115,6 +115,198 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Questionnaire Incomplete'**
   String get questionnaireIncomplete;
+
+  /// No description provided for @questionnaireReset.
+  ///
+  /// In en, this message translates to:
+  /// **'Questionnaire Reset'**
+  String get questionnaireReset;
+
+  /// No description provided for @retakeTest.
+  ///
+  /// In en, this message translates to:
+  /// **'Re-Take Test'**
+  String get retakeTest;
+
+  /// No description provided for @designedByKareemZaher.
+  ///
+  /// In en, this message translates to:
+  /// **'By Dr. Kareem Zaher'**
+  String get designedByKareemZaher;
+
+  /// No description provided for @copyright.
+  ///
+  /// In en, this message translates to:
+  /// **'All Rights Reserved'**
+  String get copyright;
+
+  /// No description provided for @home.
+  ///
+  /// In en, this message translates to:
+  /// **'Home'**
+  String get home;
+
+  /// No description provided for @test.
+  ///
+  /// In en, this message translates to:
+  /// **'Test'**
+  String get test;
+
+  /// No description provided for @about.
+  ///
+  /// In en, this message translates to:
+  /// **'About'**
+  String get about;
+
+  /// No description provided for @language.
+  ///
+  /// In en, this message translates to:
+  /// **'Language'**
+  String get language;
+
+  /// No description provided for @theme.
+  ///
+  /// In en, this message translates to:
+  /// **'Theme'**
+  String get theme;
+
+  /// No description provided for @beginTest.
+  ///
+  /// In en, this message translates to:
+  /// **'Begin Test'**
+  String get beginTest;
+
+  /// No description provided for @introText.
+  ///
+  /// In en, this message translates to:
+  /// **'These questions ask about the effects that your erection problems have had on your sex life over the last four weeks. Please try to answer the questions as honestly and as clearly as you are able. Your answers will help your doctor to choose the most effective treatment suited to your condition.'**
+  String get introText;
+
+  /// No description provided for @guidlinesTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Guidelines on Clinical Application of IIEF Patient Questionnaire'**
+  String get guidlinesTitle;
+
+  /// No description provided for @guidlinesSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'The 15-question IIEF questionnaire is a validated tool for assessing erectile dysfunction across 4 domains:'**
+  String get guidlinesSubtitle;
+
+  /// No description provided for @domainOne.
+  ///
+  /// In en, this message translates to:
+  /// **'Erectile function'**
+  String get domainOne;
+
+  /// No description provided for @domainTwo.
+  ///
+  /// In en, this message translates to:
+  /// **'Orgasmic function'**
+  String get domainTwo;
+
+  /// No description provided for @domainThree.
+  ///
+  /// In en, this message translates to:
+  /// **'Sexual desire'**
+  String get domainThree;
+
+  /// No description provided for @domainFour.
+  ///
+  /// In en, this message translates to:
+  /// **'Intercourse satisfaction'**
+  String get domainFour;
+
+  /// No description provided for @guidelinesEnd.
+  ///
+  /// In en, this message translates to:
+  /// **'Mean scores in research show clear differences between healthy men and patients.'**
+  String get guidelinesEnd;
+
+  /// No description provided for @clinicalApplications.
+  ///
+  /// In en, this message translates to:
+  /// **'Clinical application includes:'**
+  String get clinicalApplications;
+
+  /// No description provided for @cAppOne.
+  ///
+  /// In en, this message translates to:
+  /// **'Low erectile function score → Trial of Sildenafil'**
+  String get cAppOne;
+
+  /// No description provided for @cAppTwo.
+  ///
+  /// In en, this message translates to:
+  /// **'Primary orgasm/ejaculation disorder → Specialist referral'**
+  String get cAppTwo;
+
+  /// No description provided for @cAppThree.
+  ///
+  /// In en, this message translates to:
+  /// **'Low desire → Check androgen & prolactin'**
+  String get cAppThree;
+
+  /// No description provided for @cAppFour.
+  ///
+  /// In en, this message translates to:
+  /// **'Low satisfaction with moderate erectile dysfunction → Consider psychosexual counselling'**
+  String get cAppFour;
+
+  /// No description provided for @definitions.
+  ///
+  /// In en, this message translates to:
+  /// **'Definitions'**
+  String get definitions;
+
+  /// No description provided for @defOne.
+  ///
+  /// In en, this message translates to:
+  /// **'Sexual activity includes intercourse, caressing, foreplay & masturbation'**
+  String get defOne;
+
+  /// No description provided for @defTwo.
+  ///
+  /// In en, this message translates to:
+  /// **'Sexual intercourse = sexual penetration of your partner'**
+  String get defTwo;
+
+  /// No description provided for @defThree.
+  ///
+  /// In en, this message translates to:
+  /// **'Sexual stimulation = situations such as foreplay, erotic pictures etc.'**
+  String get defThree;
+
+  /// No description provided for @defFour.
+  ///
+  /// In en, this message translates to:
+  /// **'Ejaculation = ejection of semen from the penis (or the feeling of this)'**
+  String get defFour;
+
+  /// No description provided for @defFive.
+  ///
+  /// In en, this message translates to:
+  /// **'Orgasm = fulfilment or climax following sexual stimulation or intercourse'**
+  String get defFive;
+
+  /// No description provided for @disclaimerTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Privacy Disclaimer'**
+  String get disclaimerTitle;
+
+  /// No description provided for @disclaimerP1.
+  ///
+  /// In en, this message translates to:
+  /// **'This website does not collect, store, or process any personal information from its users. We do not use cookies, tracking tools, analytics services, or any other technologies that collect data about your visit.'**
+  String get disclaimerP1;
+
+  /// No description provided for @disclaimerP2.
+  ///
+  /// In en, this message translates to:
+  /// **'By using this website, you can be assured that your privacy is fully respected and protected.'**
+  String get disclaimerP2;
 }
 
 class _AppLocalizationsDelegate

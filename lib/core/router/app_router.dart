@@ -1,4 +1,5 @@
 import 'package:erection_test/core/providers/px_locale.dart';
+import 'package:erection_test/core/providers/px_quiz.dart';
 import 'package:erection_test/core/utils/shared_prefs.dart';
 import 'package:erection_test/core/utils/utils_keys.dart';
 import 'package:erection_test/pages/about_page/about_page.dart';
@@ -6,7 +7,6 @@ import 'package:erection_test/pages/home_page/home_page.dart';
 import 'package:erection_test/pages/lang_page/lang_page.dart';
 import 'package:erection_test/pages/loading_page/loading_page.dart';
 import 'package:erection_test/pages/result_page/result_page.dart';
-import 'package:erection_test/pages/settings_page/settings_page.dart';
 import 'package:erection_test/pages/test_page/test_page.dart';
 import 'package:erection_test/widgets/shell_scaffold.dart';
 import 'package:go_router/go_router.dart';
@@ -22,7 +22,6 @@ class AppRouter {
   static const String about = "about";
   static const String test = "test";
   static const String result = "result";
-  static const String settings = "settings";
 
   static final GoRouter router = GoRouter(
     debugLogDiagnostics: true,
@@ -61,7 +60,7 @@ class AppRouter {
             if (_storedLanguage != null) {
               return '/$_storedLanguage';
             } else {
-              return '/en';
+              return '/ar';
             }
           }
           return null;
@@ -116,6 +115,10 @@ class AppRouter {
                         key: state.pageKey,
                       );
                     },
+                    redirect: (context, state) {
+                      context.read<PxQuiz>().resetScore();
+                      return null;
+                    },
                   ),
                   GoRoute(
                     path: result,
@@ -125,14 +128,12 @@ class AppRouter {
                         key: state.pageKey,
                       );
                     },
-                  ),
-                  GoRoute(
-                    path: settings,
-                    name: settings,
-                    builder: (context, state) {
-                      return SettingsPage(
-                        key: state.pageKey,
-                      );
+                    redirect: (context, state) {
+                      final _q = context.read<PxQuiz>();
+                      if (!_q.isQuestionnaireValid) {
+                        return '/${state.pathParameters['lang']}/$home';
+                      }
+                      return null;
                     },
                   ),
                 ],

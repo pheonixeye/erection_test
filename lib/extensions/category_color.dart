@@ -1,21 +1,21 @@
 import 'package:erection_test/models/constants.dart';
 import 'package:flutter/material.dart';
 
-Color categoryColor(int index) {
+Color categoryColor(int index, {bool isDark = false}) {
   if (QuestionnaireConstants.erectileFunctionIndexes.contains(index)) {
-    return Colors.red.shade50;
+    return isDark ? Colors.red : Colors.red.shade50;
   }
   if (QuestionnaireConstants.orgasmicFunctionIndexes.contains(index)) {
-    return Colors.deepOrange.shade50;
+    return isDark ? Colors.deepOrange : Colors.deepOrange.shade50;
   }
   if (QuestionnaireConstants.sexualDesireIndexes.contains(index)) {
-    return Colors.blue.shade50;
+    return isDark ? Colors.teal : Colors.teal.shade50;
   }
   if (QuestionnaireConstants.intercourseSatisfactionIndexes.contains(index)) {
-    return Colors.deepPurple.shade50;
+    return isDark ? Colors.deepPurple : Colors.deepPurple.shade50;
   }
   if (QuestionnaireConstants.overallSatisfactionIndexes.contains(index)) {
-    return Colors.lightGreen.shade50;
+    return isDark ? Colors.green : Colors.lightGreen.shade50;
   }
   return Colors.white;
 }

@@ -1,5 +1,7 @@
 import 'package:erection_test/core/providers/px_locale.dart';
 import 'package:erection_test/core/providers/px_quiz.dart';
+import 'package:erection_test/core/providers/px_theme.dart';
+import 'package:erection_test/core/utils/number_translator.dart';
 import 'package:erection_test/core/utils/random_curved_animation.dart';
 import 'package:erection_test/extensions/category_color.dart';
 import 'package:erection_test/extensions/context_ext.dart';
@@ -18,8 +20,8 @@ class TestPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Consumer2<PxQuiz, PxLocale>(
-      builder: (context, q, l, _) {
+    return Consumer3<PxQuiz, PxTheme, PxLocale>(
+      builder: (context, q, t, l, _) {
         while (q.questions == null) {
           return const Center(
             child: CircularProgressIndicator(),
@@ -44,27 +46,38 @@ class TestPage extends StatelessWidget {
                     return Padding(
                       padding: const EdgeInsets.all(16.0),
                       child: NeumorphicCard(
-                        color: categoryColor(_question.index),
+                        color: categoryColor(
+                          _question.index,
+                          isDark: t.isDark,
+                        ),
                         // elevation: 6,
                         child: Padding(
-                          padding: const EdgeInsets.all(8.0),
+                          padding: const EdgeInsets.all(4.0),
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.center,
                             spacing: 2,
                             children: [
                               CircleAvatar(
-                                child: Text('${_question.index}'),
+                                child: Text(
+                                  '${_question.index}'.toArabicNumber(context),
+                                ),
                               ),
                               SizedBox(height: 10),
-                              SizedBox(
-                                width: MediaQuery.sizeOf(context).width - 100,
-                                child: ListTile(
-                                  title: Text(
+                              Padding(
+                                padding: const EdgeInsets.symmetric(
+                                  vertical: 8.0,
+                                ),
+                                child: SizedBox(
+                                  width: MediaQuery.sizeOf(context).width - 100,
+                                  child: Text(
                                     l.isEnglish
                                         ? _question.english_question
                                         : _question.arabic_question,
                                     textAlign: TextAlign.center,
+                                    style: Theme.of(
+                                      context,
+                                    ).textTheme.titleLarge,
                                   ),
                                 ),
                               ),
@@ -138,9 +151,56 @@ class TestPage extends StatelessWidget {
                       }
                       q.calculateScore();
                     },
-                    child: Text(
-                      context.loc.calculateScore,
-                      style: Theme.of(context).textTheme.bodyLarge,
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Text(
+                          context.loc.calculateScore,
+                          style: Theme.of(context).textTheme.bodyLarge
+                              ?.copyWith(
+                                color: t.isDark ? Colors.black : null,
+                              ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 4.0),
+                          child: const Icon(Icons.calculate_rounded),
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(width: 8),
+                  NeumorphicButton(
+                    onTap: () {
+                      showIsnackbar(
+                        context.loc.questionnaireReset,
+                      );
+
+                      q.resetScore();
+
+                      itemScrollController.scrollTo(
+                        index: 0,
+                        duration: const Duration(
+                          milliseconds: 600,
+                        ),
+                        curve: RandomCurver.indexedCurve(0),
+                      );
+                      _index.value = 1;
+                    },
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Text(
+                          context.loc.retakeTest,
+                          style: Theme.of(context).textTheme.bodyLarge
+                              ?.copyWith(
+                                color: t.isDark ? Colors.black : null,
+                              ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 4.0),
+                          child: const Icon(Icons.refresh),
+                        ),
+                      ],
                     ),
                   ),
                 ],

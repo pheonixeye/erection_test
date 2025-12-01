@@ -1,6 +1,7 @@
 import 'package:erection_test/assets/app_assets.dart';
 import 'package:erection_test/core/providers/px_locale.dart';
 import 'package:erection_test/core/providers/px_quiz.dart';
+import 'package:erection_test/core/providers/px_theme.dart';
 import 'package:erection_test/core/router/app_router.dart';
 import 'package:erection_test/core/utils/number_translator.dart';
 import 'package:erection_test/extensions/context_ext.dart';
@@ -17,81 +18,133 @@ class ShellScaffold extends StatelessWidget {
   final Widget child;
   @override
   Widget build(BuildContext context) {
-    return Consumer3<GoRouteInformationProvider, PxQuiz, PxLocale>(
-      builder: (context, r, q, l, _) {
+    return Consumer4<GoRouteInformationProvider, PxQuiz, PxTheme, PxLocale>(
+      builder: (context, r, q, t, l, _) {
         final _path = r.value.uri.path;
+        final _currentPath = r.value.uri.pathSegments.last;
         return SafeArea(
           child: Scaffold(
             drawer: Drawer(
               child: Builder(
                 builder: (context) {
-                  return Column(
-                    spacing: 4,
-                    children: [
-                      DrawerHeader(
-                        child: NeumorphicCard(
-                          child: Image.asset(AppAssets.icon),
-                        ),
+                  return Theme(
+                    data: Theme.of(context).copyWith(
+                      listTileTheme: ListTileThemeData(
+                        selectedTileColor: t.isDark
+                            ? Colors.amber.shade50
+                            : Colors.amber,
+                        selectedColor: t.isDark
+                            ? Colors.blue
+                            : Colors.blue.shade50,
                       ),
-                      const Divider(),
-                      ListTile(
-                        title: Text('Home'),
-                        leading: IconButton.outlined(
-                          onPressed: null,
-                          icon: const Icon(Icons.description),
+                    ),
+                    child: Column(
+                      spacing: 4,
+                      children: [
+                        DrawerHeader(
+                          child: NeumorphicCard(
+                            child: Image.asset(AppAssets.icon),
+                          ),
                         ),
-                        onTap: () {
-                          GoRouter.of(context).goNamed(
-                            AppRouter.home,
-                            pathParameters: context.defaultPathParameters,
-                          );
-                          Scaffold.of(context).closeDrawer();
-                        },
-                      ),
-                      ListTile(
-                        title: Text('Test'),
-                        leading: IconButton.outlined(
-                          onPressed: null,
-                          icon: const Icon(Icons.edit_document),
+                        const Divider(),
+                        ListTile(
+                          title: Text(context.loc.home),
+                          leading: IconButton.outlined(
+                            onPressed: null,
+                            icon: const Icon(Icons.description),
+                          ),
+                          onTap: () {
+                            GoRouter.of(context).goNamed(
+                              AppRouter.home,
+                              pathParameters: context.defaultPathParameters,
+                            );
+                            Scaffold.of(context).closeDrawer();
+                          },
+                          selected: _currentPath == 'home',
                         ),
-                        onTap: () {
-                          GoRouter.of(context).goNamed(
-                            AppRouter.test,
-                            pathParameters: context.defaultPathParameters,
-                          );
+                        ListTile(
+                          title: Text(context.loc.test),
+                          leading: IconButton.outlined(
+                            onPressed: null,
+                            icon: const Icon(Icons.edit_document),
+                          ),
+                          onTap: () {
+                            GoRouter.of(context).goNamed(
+                              AppRouter.test,
+                              pathParameters: context.defaultPathParameters,
+                            );
 
-                          Scaffold.of(context).closeDrawer();
-                        },
-                      ),
-                      ListTile(
-                        title: Text('About'),
-                        leading: IconButton.outlined(
-                          onPressed: null,
-                          icon: const Icon(Icons.info),
+                            Scaffold.of(context).closeDrawer();
+                          },
+                          selected: _currentPath == 'test',
                         ),
-                        onTap: () {
-                          GoRouter.of(context).goNamed(
-                            AppRouter.about,
-                            pathParameters: context.defaultPathParameters,
-                          );
-                          Scaffold.of(context).closeDrawer();
-                        },
-                      ),
-                      ListTile(
-                        title: Text('Settings'),
-                        leading: IconButton.outlined(
-                          onPressed: null,
-                          icon: const Icon(Icons.settings),
+                        ListTile(
+                          title: Text(context.loc.about),
+                          leading: IconButton.outlined(
+                            onPressed: null,
+                            icon: const Icon(Icons.info),
+                          ),
+                          onTap: () {
+                            GoRouter.of(context).goNamed(
+                              AppRouter.about,
+                              pathParameters: context.defaultPathParameters,
+                            );
+                            Scaffold.of(context).closeDrawer();
+                          },
+                          selected: _currentPath == 'about',
                         ),
-                        onTap: () {
-                          GoRouter.of(context).goNamed(
-                            AppRouter.settings,
-                            pathParameters: context.defaultPathParameters,
-                          );
-                          Scaffold.of(context).closeDrawer();
-                        },
-                      ),
-                    ],
+
+                        ListTile(
+                          title: Text(context.loc.theme),
+                          leading: IconButton.outlined(
+                            onPressed: null,
+                            icon: const Icon(Icons.dark_mode),
+                          ),
+                          onTap: () async {
+                            await t.toggleTheme();
+                            if (context.mounted) {
+                              Scaffold.of(context).closeDrawer();
+                            }
+                          },
+                        ),
+                        ListTile(
+                          title: Text(context.loc.language),
+                          leading: IconButton.outlined(
+                            onPressed: null,
+                            icon: const Icon(Icons.language),
+                          ),
+                          onTap: () async {
+                            l.toggleLanguage();
+                            final _currentRoute = r.value.uri.pathSegments.last;
+                            GoRouter.of(context).goNamed(
+                              _currentRoute,
+                              pathParameters: context.defaultPathParameters,
+                            );
+                            if (context.mounted) {
+                              Scaffold.of(context).closeDrawer();
+                            }
+                          },
+                        ),
+                        const Spacer(),
+                        Text.rich(
+                          TextSpan(
+                            text: context.loc.designedByKareemZaher,
+                            children: [
+                              TextSpan(text: '\n'),
+                              TextSpan(text: context.loc.copyright),
+                              TextSpan(text: '\n'),
+                              TextSpan(
+                                text: '@ ${DateTime.now().year}'.toArabicNumber(
+                                  context,
+                                ),
+                              ),
+                            ],
+                          ),
+                          textAlign: TextAlign.center,
+                        ),
+                        SizedBox(height: 4),
+                      ],
+                    ),
                   );
                 },
               ),
@@ -119,12 +172,12 @@ class ShellScaffold extends StatelessWidget {
                       ),
                     ),
                   ],
+                  style: Theme.of(context).textTheme.headlineMedium,
                 ),
               ),
               automaticallyImplyLeading: false,
               actions: [
-                //TODO: Change later
-                if (_path.contains('home'))
+                if (_path.contains('test'))
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 16.0),
                     child: Text(
