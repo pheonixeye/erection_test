@@ -37,7 +37,7 @@ class _LoadingPageState extends State<LoadingPage>
       body: Center(
         child: ScaleTransition(
           scale: _animation,
-          child: Image.asset(AppAssets.icon),
+          child: Image.asset(AppAssets.logo),
         ),
       ),
     );

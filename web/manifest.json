@@ -1,11 +1,11 @@
 {
-    "name": "erection_test",
-    "short_name": "erection_test",
+    "name": "Erection Test",
+    "short_name": "Erection Test",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
+    "description": "Erection Test App is based on the IIEF-15 Questionnaire that provides subjective evaluation for different aspects of male sexual function.",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [

@@ -43,7 +43,7 @@ class ShellScaffold extends StatelessWidget {
                       children: [
                         DrawerHeader(
                           child: NeumorphicCard(
-                            child: Image.asset(AppAssets.icon),
+                            child: Image.asset(AppAssets.logo),
                           ),
                         ),
                         const Divider(),

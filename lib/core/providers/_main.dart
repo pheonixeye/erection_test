@@ -20,6 +20,6 @@ final List<SingleChildWidget> providers = [
     create: (context) => PxQuiz(),
   ),
   ChangeNotifierProvider(
-    create: (context) => PxDisclaimer(context),
+    create: (context) => PxDisclaimer(),
   ),
 ];
