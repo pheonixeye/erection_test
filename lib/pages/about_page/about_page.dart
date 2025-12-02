@@ -16,6 +16,7 @@ class AboutPage extends StatelessWidget {
       data: Theme.of(context).copyWith(
         listTileTheme: ListTileThemeData(
           contentPadding: const EdgeInsets.all(0),
+          titleAlignment: ListTileTitleAlignment.titleHeight,
         ),
       ),
       child: ListView(
@@ -82,12 +83,15 @@ class AboutPage extends StatelessWidget {
                 ),
                 const Divider(),
                 const Divider(),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Text(
-                    context.loc.clinicalApplications,
-                    style: Theme.of(context).textTheme.headlineMedium,
-                    textAlign: TextAlign.start,
+                Align(
+                  alignment: AlignmentDirectional.centerStart,
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(
+                      context.loc.clinicalApplications,
+                      style: Theme.of(context).textTheme.headlineMedium,
+                      textAlign: TextAlign.start,
+                    ),
                   ),
                 ),
                 const Divider(),
@@ -106,6 +110,24 @@ class AboutPage extends StatelessWidget {
                 ListTile(
                   leading: const CircleAvatar(radius: 5),
                   title: Text(context.loc.cAppFour),
+                ),
+                const Divider(),
+                const Divider(),
+                Align(
+                  alignment: AlignmentDirectional.centerStart,
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(
+                      context.loc.importantConsiderations,
+                      style: Theme.of(context).textTheme.headlineMedium,
+                      textAlign: TextAlign.start,
+                    ),
+                  ),
+                ),
+                const Divider(),
+                ListTile(
+                  leading: const CircleAvatar(radius: 5),
+                  title: Text(context.loc.considerationOne),
                 ),
                 const Divider(),
                 const Divider(),

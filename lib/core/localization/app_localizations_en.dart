@@ -72,6 +72,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get domainFour => 'Intercourse satisfaction';
 
   @override
+  String get domainFive => 'Overall satisfaction';
+
+  @override
   String get guidelinesEnd =>
       'Mean scores in research show clear differences between healthy men and patients.';
 
@@ -125,4 +128,18 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get disclaimerP2 =>
       'By using this website, you can be assured that your privacy is fully respected and protected.';
+
+  @override
+  String get questionsLastFourWeeks =>
+      'Answer The Questions For The Last Four Weeks';
+
+  @override
+  String get importantConsiderations => 'Important Considerations';
+
+  @override
+  String get considerationOne =>
+      'This test is resticted by the superficial knowledge of psychosexual background and the very limited background of partner relationship, both important factors in the presentation of male sexual dysfunction. Analysis of the questionnaire should, therefore, be viewed as an adjunct to, rather than  a substitute for, a detailed sexual history and examination.';
+
+  @override
+  String get testResult => 'Test Result';
 }

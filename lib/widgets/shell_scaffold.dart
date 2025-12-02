@@ -21,6 +21,11 @@ class ShellScaffold extends StatelessWidget {
     return Consumer4<GoRouteInformationProvider, PxQuiz, PxTheme, PxLocale>(
       builder: (context, r, q, t, l, _) {
         final _path = r.value.uri.path;
+        while (r.value.uri.pathSegments.isEmpty) {
+          return const Center(
+            child: CircularProgressIndicator(),
+          );
+        }
         final _currentPath = r.value.uri.pathSegments.last;
         return SafeArea(
           child: Scaffold(
@@ -187,6 +192,15 @@ class ShellScaffold extends StatelessWidget {
               ],
             ),
             body: child,
+            bottomNavigationBar: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(context.loc.designedByKareemZaher),
+                ],
+              ),
+            ),
           ),
         );
       },

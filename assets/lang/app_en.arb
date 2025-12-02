@@ -19,6 +19,7 @@
     "domainTwo" : "Orgasmic function",
     "domainThree" : "Sexual desire",
     "domainFour" : "Intercourse satisfaction",
+    "domainFive" : "Overall satisfaction",
     "guidelinesEnd" : "Mean scores in research show clear differences between healthy men and patients.",
     "clinicalApplications" : "Clinical application includes:",
     "cAppOne" : "Low erectile function score → Trial of Sildenafil",
@@ -33,5 +34,9 @@
     "defFive" : "Orgasm = fulfilment or climax following sexual stimulation or intercourse",
     "disclaimerTitle" : "Privacy Disclaimer",
     "disclaimerP1" : "This website does not collect, store, or process any personal information from its users. We do not use cookies, tracking tools, analytics services, or any other technologies that collect data about your visit.",
-    "disclaimerP2" : "By using this website, you can be assured that your privacy is fully respected and protected."
+    "disclaimerP2" : "By using this website, you can be assured that your privacy is fully respected and protected.",
+    "questionsLastFourWeeks" : "Answer The Questions For The Last Four Weeks",
+    "importantConsiderations" : "Important Considerations",
+    "considerationOne" : "This test is resticted by the superficial knowledge of psychosexual background and the very limited background of partner relationship, both important factors in the presentation of male sexual dysfunction. Analysis of the questionnaire should, therefore, be viewed as an adjunct to, rather than  a substitute for, a detailed sexual history and examination.",
+    "testResult" : "Test Result"
 }

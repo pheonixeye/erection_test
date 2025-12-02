@@ -37,27 +37,27 @@ class PxQuiz extends ChangeNotifier {
 
   final Map<int, int> _erectileFunctionScore = {};
 
-  int get erectileFunctionScore =>
+  double get erectileFunctionScore =>
       _erectileFunctionScore.values.fold(0, (a, b) => a + b);
 
   final Map<int, int> _orgasmicFunctionScore = {};
 
-  int get orgasmicFunctionScore =>
+  double get orgasmicFunctionScore =>
       _orgasmicFunctionScore.values.fold(0, (a, b) => a + b);
 
   final Map<int, int> _sexualDesireScore = {};
 
-  int get sexualDesireScore =>
+  double get sexualDesireScore =>
       _sexualDesireScore.values.fold(0, (a, b) => a + b);
 
   final Map<int, int> _intercourseSatisfactionScore = {};
 
-  int get intercourseSatisfactionScore =>
+  double get intercourseSatisfactionScore =>
       _intercourseSatisfactionScore.values.fold(0, (a, b) => a + b);
 
   final Map<int, int> _overallSatisfactionScore = {};
 
-  int get overallSatisfactionScore =>
+  double get overallSatisfactionScore =>
       _overallSatisfactionScore.values.fold(0, (a, b) => a + b);
 
   void calculateScore() {
@@ -102,6 +102,14 @@ overall satisfaction score : $overallSatisfactionScore / ${QuestionnaireConstant
     _sexualDesireScore.clear();
     _intercourseSatisfactionScore.clear();
     _overallSatisfactionScore.clear();
+    notifyListeners();
+  }
+
+  DomainScore? _domainScore;
+  DomainScore? get domainScore => _domainScore;
+
+  void selectDomainForGraph(DomainScore value) {
+    _domainScore = value;
     notifyListeners();
   }
 }

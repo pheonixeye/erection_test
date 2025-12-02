@@ -30,7 +30,7 @@ class AppTheme {
 
       textTheme: textTheme,
 
-      scaffoldBackgroundColor: backgroundSoft,
+      scaffoldBackgroundColor: Colors.grey.shade100,
 
       cardTheme: CardThemeData(
         color: surfaceSoft,
@@ -81,7 +81,8 @@ class AppTheme {
         seedColor: seedColor,
         brightness: Brightness.dark,
       ),
-      scaffoldBackgroundColor: const Color(0xFF0F1115),
+      // scaffoldBackgroundColor: const Color(0xFF0F1115),
+      scaffoldBackgroundColor: Colors.grey.shade800,
 
       appBarTheme: AppBarTheme(
         elevation: 0,
@@ -94,7 +95,7 @@ class AppTheme {
       cardTheme: CardThemeData(
         color: surfaceDark,
         elevation: 2,
-        shadowColor: Colors.black.withOpacity(0.25),
+        shadowColor: Colors.black.withValues(alpha: 0.25),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(16),
         ),

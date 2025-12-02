@@ -1,6 +1,7 @@
 import 'package:erection_test/core/providers/px_locale.dart';
 import 'package:erection_test/core/providers/px_quiz.dart';
 import 'package:erection_test/core/providers/px_theme.dart';
+import 'package:erection_test/core/router/app_router.dart';
 import 'package:erection_test/core/utils/number_translator.dart';
 import 'package:erection_test/core/utils/random_curved_animation.dart';
 import 'package:erection_test/extensions/category_color.dart';
@@ -9,6 +10,7 @@ import 'package:erection_test/widgets/neumorphic_btn.dart';
 import 'package:erection_test/widgets/neumorphic_card.dart';
 import 'package:erection_test/widgets/snackbar_.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 
@@ -33,7 +35,6 @@ class TestPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Expanded(
-              flex: 12,
               child: Directionality(
                 textDirection: TextDirection.ltr,
                 child: ScrollablePositionedList.builder(
@@ -135,7 +136,7 @@ class TestPage extends StatelessWidget {
                 ),
               ),
             ),
-            const Spacer(),
+            const SizedBox(height: 2),
 
             if (q.isQuestionnaireValid) ...[
               Row(
@@ -150,6 +151,10 @@ class TestPage extends StatelessWidget {
                         return;
                       }
                       q.calculateScore();
+                      GoRouter.of(context).goNamed(
+                        AppRouter.result,
+                        pathParameters: context.defaultPathParameters,
+                      );
                     },
                     child: Row(
                       mainAxisSize: MainAxisSize.min,
@@ -202,6 +207,18 @@ class TestPage extends StatelessWidget {
                         ),
                       ],
                     ),
+                  ),
+                ],
+              ),
+              SizedBox(height: 10),
+            ] else ...[
+              SizedBox(height: 10),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    context.loc.questionsLastFourWeeks,
+                    style: Theme.of(context).textTheme.titleLarge,
                   ),
                 ],
               ),

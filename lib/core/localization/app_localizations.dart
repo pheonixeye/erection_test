@@ -218,6 +218,12 @@ abstract class AppLocalizations {
   /// **'Intercourse satisfaction'**
   String get domainFour;
 
+  /// No description provided for @domainFive.
+  ///
+  /// In en, this message translates to:
+  /// **'Overall satisfaction'**
+  String get domainFive;
+
   /// No description provided for @guidelinesEnd.
   ///
   /// In en, this message translates to:
@@ -307,6 +313,30 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'By using this website, you can be assured that your privacy is fully respected and protected.'**
   String get disclaimerP2;
+
+  /// No description provided for @questionsLastFourWeeks.
+  ///
+  /// In en, this message translates to:
+  /// **'Answer The Questions For The Last Four Weeks'**
+  String get questionsLastFourWeeks;
+
+  /// No description provided for @importantConsiderations.
+  ///
+  /// In en, this message translates to:
+  /// **'Important Considerations'**
+  String get importantConsiderations;
+
+  /// No description provided for @considerationOne.
+  ///
+  /// In en, this message translates to:
+  /// **'This test is resticted by the superficial knowledge of psychosexual background and the very limited background of partner relationship, both important factors in the presentation of male sexual dysfunction. Analysis of the questionnaire should, therefore, be viewed as an adjunct to, rather than  a substitute for, a detailed sexual history and examination.'**
+  String get considerationOne;
+
+  /// No description provided for @testResult.
+  ///
+  /// In en, this message translates to:
+  /// **'Test Result'**
+  String get testResult;
 }
 
 class _AppLocalizationsDelegate

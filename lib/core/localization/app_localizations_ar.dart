@@ -71,6 +71,9 @@ class AppLocalizationsAr extends AppLocalizations {
   String get domainFour => 'الرضا أثناء الجماع';
 
   @override
+  String get domainFive => 'الرضا العام';
+
+  @override
   String get guidelinesEnd =>
       'تظهر النتائج في الأبحاث فروقًا واضحة بين الرجال الأصحاء والمرضى.';
 
@@ -121,4 +124,17 @@ class AppLocalizationsAr extends AppLocalizations {
   @override
   String get disclaimerP2 =>
       'باستخدامك لهذا الموقع، يمكنك التأكد من أن خصوصيتك محفوظة بالكامل';
+
+  @override
+  String get questionsLastFourWeeks => 'الاسئلة بخصوص الاربعة اسابيع السابقة';
+
+  @override
+  String get importantConsiderations => 'اعتبارات هامة';
+
+  @override
+  String get considerationOne =>
+      'هذا الاختبار مقيد بالمعرفة السطحية بالخلفية النفسية الجنسية، وبالخلفية المحدودة جدًا لعلاقات الشريك، وكلاهما عاملان مهمان في تشخيص الخلل الجنسي لدى الذكور. لذلك، ينبغي النظر إلى تحليل الاستبيان كملحق للتاريخ الجنسي المفصل والفحص، وليس بديلاً عنهما.';
+
+  @override
+  String get testResult => 'نتيجة الاختبار';
 }

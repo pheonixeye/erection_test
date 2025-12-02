@@ -37,9 +37,62 @@
     /*! (c) Andrea Giammarchi - ISC */
     var self = this || {}; try { self.WeakRef = WeakRef, self.FinalizationGroup = FinalizationGroup } catch (e) { !function (e, t) { var i = new e; function n(e) { i.set(this, e) } t(n.prototype, { deref: { value: function () { return i.get(this) } } }); var a = new e; function r(e) { a.set(this, []) } t(r.prototype, { register: { value: function (e, t) { var i = a.get(this); i.indexOf(t) < 0 && i.push(t) } }, unregister: { value: function (e, t) { var i = a.get(this), n = i.indexOf(t); return -1 < n && i.splice(n, 1), -1 < n } }, cleanupSome: { value: function (e) { e(a.get(this)) } } }), self.WeakRef = n, self.FinalizationGroup = r }(WeakMap, Object.defineProperties) }
   </script>
+  <style>
+    .loading {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+    }
+
+    .loader {
+      border-radius: 50%;
+      border: 6px solid;
+      border-top: 6px solid transparent;
+      border-right: 6px solid #50E4FF;
+      border-bottom: 6px solid transparent;
+      border-left: 6px solid #50E4FF;
+      width: 52px;
+      height: 52px;
+      -webkit-animation: spin 2s linear infinite;
+      animation: spin 2s linear infinite;
+    }
+
+    @-webkit-keyframes spin {
+      0% {
+        -webkit-transform: rotate(0deg);
+      }
+
+      100% {
+        -webkit-transform: rotate(360deg);
+      }
+    }
+
+    @keyframes spin {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    body {
+      background: #282E45;
+    }
+  </style>
 </head>
 
 <body>
+  <div class="loading">
+    <div class="loader"></div>
+  </div>
   <script src="flutter_bootstrap.js" async></script>
 </body>
 
