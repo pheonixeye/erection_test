@@ -31,15 +31,11 @@ class AppRouter {
       final _locale = context.read<PxLocale>();
       final _urlLang = state.pathParameters['lang'];
       if (_urlLang != null && _urlLang != _locale.lang) {
-        print('PxLocale.setLocale($_urlLang)(from router-redirect)');
         try {
           await _locale.setLang(_urlLang);
           _locale.setLocale();
           return null;
         } catch (e) {
-          print(
-            'PxLocale.setLocale($_urlLang)(from router-redirect)(couldnnot set locale correctly)',
-          );
           return null;
         }
       }

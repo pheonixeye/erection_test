@@ -8,7 +8,7 @@ class PxLocale extends ChangeNotifier {
   void setLocale() {
     _locale = Locale(_lang);
     notifyListeners();
-    print("PxLocale().setLocale($_locale)");
+    // print("PxLocale().setLocale($_locale)");
   }
 
   static String _lang = 'ar';

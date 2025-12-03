@@ -86,13 +86,13 @@ class PxQuiz extends ChangeNotifier {
       }
     }).toList();
     notifyListeners();
-    print(
-      '''erectile function score : $erectileFunctionScore / ${QuestionnaireConstants.erectileFunctionMaxScore},
-orgasmic function score : $orgasmicFunctionScore / ${QuestionnaireConstants.orgasmicFunctionMaxScore},
-sexual desire score : $sexualDesireScore / ${QuestionnaireConstants.sexualDesireMaxScore},
-intercourse satisfaction score : $intercourseSatisfactionScore / ${QuestionnaireConstants.intercourseSatisfactionMaxScore},
-overall satisfaction score : $overallSatisfactionScore / ${QuestionnaireConstants.overallSatisfactionMaxScore},''',
-    );
+    //     print(
+    //       '''erectile function score : $erectileFunctionScore / ${QuestionnaireConstants.erectileFunctionMaxScore},
+    // orgasmic function score : $orgasmicFunctionScore / ${QuestionnaireConstants.orgasmicFunctionMaxScore},
+    // sexual desire score : $sexualDesireScore / ${QuestionnaireConstants.sexualDesireMaxScore},
+    // intercourse satisfaction score : $intercourseSatisfactionScore / ${QuestionnaireConstants.intercourseSatisfactionMaxScore},
+    // overall satisfaction score : $overallSatisfactionScore / ${QuestionnaireConstants.overallSatisfactionMaxScore},''',
+    //     );
   }
 
   void resetScore() {

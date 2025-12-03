@@ -79,7 +79,7 @@ class AppLocalizationsEn extends AppLocalizations {
       'Mean scores in research show clear differences between healthy men and patients.';
 
   @override
-  String get clinicalApplications => 'Clinical application includes:';
+  String get clinicalApplications => 'Clinical application';
 
   @override
   String get cAppOne => 'Low erectile function score → Trial of Sildenafil';

@@ -233,7 +233,7 @@ abstract class AppLocalizations {
   /// No description provided for @clinicalApplications.
   ///
   /// In en, this message translates to:
-  /// **'Clinical application includes:'**
+  /// **'Clinical application'**
   String get clinicalApplications;
 
   /// No description provided for @cAppOne.
