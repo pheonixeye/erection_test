@@ -22,52 +22,83 @@ class _ResultPageState extends State<ResultPage> {
   Widget build(BuildContext context) {
     return Consumer3<PxQuiz, PxTheme, PxLocale>(
       builder: (context, q, t, l, _) {
-        return Column(
+        return ListView(
           children: [
             SizedBox(height: 10),
             Align(
-              alignment: AlignmentDirectional.center,
-              child: Text(
-                context.loc.testResult,
-                style: Theme.of(context).textTheme.titleLarge,
+              alignment: AlignmentDirectional.centerStart,
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  context.loc.testResult,
+                  style: Theme.of(context).textTheme.titleLarge,
+                ),
               ),
             ),
             SizedBox(height: 10),
-            ResultTable(
-              q: q,
-              t: t,
-              l: l,
+            Align(
+              alignment: AlignmentDirectional.center,
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: ResultTable(
+                  q: q,
+                  t: t,
+                  l: l,
+                ),
+              ),
             ),
             const Divider(),
-            ResultGraph(
-              t: t,
+            if (q.domainScore != null)
+              Align(
+                alignment: AlignmentDirectional.centerStart,
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(
+                    q.domainScore?.name ?? '',
+                    style: Theme.of(context).textTheme.titleLarge,
+                  ),
+                ),
+              ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: ResultGraph(
+                t: t,
+              ),
             ),
             SizedBox(height: 10),
-            NeumorphicButton(
-              onTap: () {
-                GoRouter.of(context).goNamed(
-                  AppRouter.home,
-                  pathParameters: context.defaultPathParameters,
-                );
-              },
-              child: Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Consumer<PxTheme>(
-                    builder: (context, t, _) {
-                      return Text(
-                        context.loc.home,
-                        style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                          color: t.isDark ? Colors.black : null,
-                        ),
-                      );
-                    },
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 4.0),
-                    child: const Icon(Icons.home),
-                  ),
-                ],
+            Padding(
+              padding: EdgeInsets.symmetric(
+                vertical: 8,
+                horizontal: MediaQuery.sizeOf(context).width * 0.3,
+              ),
+              child: NeumorphicButton(
+                onTap: () {
+                  GoRouter.of(context).goNamed(
+                    AppRouter.home,
+                    pathParameters: context.defaultPathParameters,
+                  );
+                },
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Consumer<PxTheme>(
+                      builder: (context, t, _) {
+                        return Text(
+                          context.loc.home,
+                          style: Theme.of(context).textTheme.bodyLarge
+                              ?.copyWith(
+                                color: t.isDark ? Colors.black : null,
+                              ),
+                        );
+                      },
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 4.0),
+                      child: const Icon(Icons.home),
+                    ),
+                  ],
+                ),
               ),
             ),
             SizedBox(height: 10),

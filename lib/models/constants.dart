@@ -52,13 +52,28 @@ class DomainScore extends Equatable {
     required this.name,
   });
 
-  Map<ResultTableHeaderRowItems, dynamic> get arrangedValues => {
+  Map<ResultTableHeaderRowItems, dynamic> get tableValues => {
     ResultTableHeaderRowItems.domain: name,
     ResultTableHeaderRowItems.yourScore: calculated,
     ResultTableHeaderRowItems.averageScore: average,
     ResultTableHeaderRowItems.patientScore: patient,
     ResultTableHeaderRowItems.maxScore: max,
   };
+
+  Map<ResultTableHeaderRowItems, dynamic> get graphValues => {
+    ResultTableHeaderRowItems.yourScore: calculated,
+    ResultTableHeaderRowItems.averageScore: average,
+    ResultTableHeaderRowItems.patientScore: patient,
+    ResultTableHeaderRowItems.maxScore: max,
+  };
+
+  bool get isResultGood => calculated >= average;
+
+  bool get isResultBad => calculated < average;
+
+  bool get isResultAverage => calculated > patient && calculated < average;
+
+  bool get isResultMax => calculated == max;
 
   @override
   List<Object> get props => [
@@ -160,4 +175,11 @@ enum ResultTableHeaderRowItems {
     required this.en,
     required this.ar,
   });
+
+  static const List<ResultTableHeaderRowItems> graphTitles = [
+    yourScore,
+    averageScore,
+    patientScore,
+    maxScore,
+  ];
 }

@@ -59,74 +59,127 @@ class TestPage extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.center,
                             spacing: 2,
                             children: [
-                              CircleAvatar(
-                                child: Text(
-                                  '${_question.index}'.toArabicNumber(context),
+                              if (context.isMobile) ...[
+                                CircleAvatar(
+                                  child: Text(
+                                    '${_question.index}'.toArabicNumber(
+                                      context,
+                                    ),
+                                  ),
                                 ),
-                              ),
-                              SizedBox(height: 10),
+                                SizedBox(height: 10),
+                              ],
                               Padding(
                                 padding: const EdgeInsets.symmetric(
                                   vertical: 8.0,
                                 ),
                                 child: SizedBox(
                                   width: MediaQuery.sizeOf(context).width - 100,
-                                  child: Text(
-                                    l.isEnglish
-                                        ? _question.english_question
-                                        : _question.arabic_question,
-                                    textAlign: TextAlign.center,
-                                    style: Theme.of(
-                                      context,
-                                    ).textTheme.titleLarge,
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      if (!context.isMobile && l.isEnglish) ...[
+                                        CircleAvatar(
+                                          child: Text(
+                                            '${_question.index}'.toArabicNumber(
+                                              context,
+                                            ),
+                                          ),
+                                        ),
+                                        SizedBox(width: 10),
+                                      ],
+                                      Expanded(
+                                        child: Text(
+                                          l.isEnglish
+                                              ? _question.english_question
+                                              : _question.arabic_question,
+                                          textAlign: TextAlign.center,
+                                          style: Theme.of(
+                                            context,
+                                          ).textTheme.titleLarge,
+                                        ),
+                                      ),
+                                      if (!context.isMobile &&
+                                          !l.isEnglish) ...[
+                                        SizedBox(width: 10),
+                                        CircleAvatar(
+                                          child: Text(
+                                            '${_question.index}'.toArabicNumber(
+                                              context,
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ],
                                   ),
                                 ),
                               ),
-                              ..._question.answers.map((answer) {
-                                return Directionality(
-                                  textDirection: l.isEnglish
-                                      ? TextDirection.ltr
-                                      : TextDirection.rtl,
-                                  child: SizedBox(
+                              Expanded(
+                                child: ConstrainedBox(
+                                  constraints: BoxConstraints.tightFor(
                                     width:
-                                        MediaQuery.sizeOf(context).width - 100,
-                                    child: Padding(
-                                      padding: const EdgeInsets.all(8.0),
-                                      child: RadioListTile<int>(
-                                        title: Text(
-                                          l.isEnglish ? answer.en : answer.ar,
-                                        ),
-                                        selected:
-                                            answer.score ==
-                                            q.scores[_question.index],
-                                        selectedTileColor:
-                                            Colors.amber.shade100,
-                                        value: answer.score,
-                                        groupValue: q.scores[_question.index],
-                                        onChanged: (value) {
-                                          if (value != null) {
-                                            q.setQuestionScore(
-                                              _question.index,
-                                              value,
-                                            );
-
-                                            itemScrollController.scrollTo(
-                                              index: index + 1,
-                                              duration: const Duration(
-                                                milliseconds: 600,
-                                              ),
-                                              curve: RandomCurver.indexedCurve(
-                                                index,
-                                              ),
-                                            );
-                                            _index.value = index + 1;
-                                          }
-                                        },
-                                      ),
-                                    ),
+                                        MediaQuery.sizeOf(context).width - 80,
                                   ),
-                                );
-                              }),
+                                  child: ListView(
+                                    children: [
+                                      ..._question.answers.map((answer) {
+                                        return Directionality(
+                                          textDirection: l.isEnglish
+                                              ? TextDirection.ltr
+                                              : TextDirection.rtl,
+                                          child: SizedBox(
+                                            width:
+                                                MediaQuery.sizeOf(
+                                                  context,
+                                                ).width -
+                                                100,
+                                            child: Padding(
+                                              padding: const EdgeInsets.all(
+                                                8.0,
+                                              ),
+                                              child: RadioListTile<int>(
+                                                title: Text(
+                                                  l.isEnglish
+                                                      ? answer.en
+                                                      : answer.ar,
+                                                ),
+                                                selected:
+                                                    answer.score ==
+                                                    q.scores[_question.index],
+                                                selectedTileColor:
+                                                    Colors.amber.shade100,
+                                                value: answer.score,
+                                                groupValue:
+                                                    q.scores[_question.index],
+                                                onChanged: (value) {
+                                                  if (value != null) {
+                                                    q.setQuestionScore(
+                                                      _question.index,
+                                                      value,
+                                                    );
+
+                                                    itemScrollController.scrollTo(
+                                                      index: index + 1,
+                                                      duration: const Duration(
+                                                        milliseconds: 600,
+                                                      ),
+                                                      curve:
+                                                          RandomCurver.indexedCurve(
+                                                            index,
+                                                          ),
+                                                    );
+                                                    _index.value = index + 1;
+                                                  }
+                                                },
+                                              ),
+                                            ),
+                                          ),
+                                        );
+                                      }),
+                                    ],
+                                  ),
+                                ),
+                              ),
                             ],
                           ),
                         ),
